@@ -38,8 +38,6 @@ void MainWindow::process()
         QImage   logo2 = logo.scaled(50, 50, Qt::KeepAspectRatio);
         QPainter painter(&image); painter.setOpacity(1);
 
-
-        // setting and drawing logo to bottom right corner of QImage
         if(contourDetection(string)==0){
             painter.drawImage(logoToTopLeft(), logo2);
             painter.end();
@@ -143,7 +141,6 @@ QPoint MainWindow::logoToBottomRight(QImage image, QImage logo2)
 void MainWindow::on_process_clicked()
 {
     QtConcurrent::run(this, &MainWindow::process);
-//    contourDetection();
 }
 
 void MainWindow::on_browse_clicked()
