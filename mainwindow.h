@@ -1,6 +1,5 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-//edge detection ,corner detection, contour detection
 #include <QMainWindow>
 #include <QFileInfoList>
 #include <QFileDialog>
@@ -23,8 +22,8 @@ public:
              MainWindow(QWidget *parent = nullptr);
              ~MainWindow();
     void     process();
-    quint8   contourDetection(const QString path);
     double   contoursArea(cv::Mat alaniBulunacakKose);
+    quint8   contourDetection(const QString path);
     QPoint   logoToTopLeft();
     QPoint   logoToTopRight(QImage image, QImage logo2);
     QPoint   logoToBottomLeft(QImage image, QImage logo2);

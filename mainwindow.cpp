@@ -21,6 +21,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    QImage imagee("/home/efe/Desktop/resim/imagess.png");
+
 }
 
 MainWindow::~MainWindow()
@@ -36,7 +38,7 @@ void MainWindow::process()
         QString  logoPath = "/home/efe/Downloads/logo.png";
         QImage   logo(logoPath);
         QImage   logo2 = logo.scaled(50, 50, Qt::KeepAspectRatio);
-        QPainter painter(&image); painter.setOpacity(1);
+        QPainter painter(&image); painter.setOpacity(0.5);
 
 
         // setting and drawing logo to bottom right corner of QImage
@@ -94,19 +96,18 @@ quint8 MainWindow::contourDetection(const QString path)
             result = i;
         }
     }
-
     return result;
 }
 
-double MainWindow::contoursArea(cv::Mat alaniBulunacakKose)
+double MainWindow::contoursArea(cv::Mat corner)
 {
-    Mat alaniBulunacakKoseCopy;
+    Mat cornerCopy;
     vector<vector<Point>> contours;
     vector<Vec4i> hierarchy;
 
-    findContours(alaniBulunacakKose, contours, hierarchy, RETR_CCOMP, CHAIN_APPROX_NONE);
-    alaniBulunacakKoseCopy = alaniBulunacakKose.clone();
-    drawContours(alaniBulunacakKoseCopy, contours, -1, Scalar(255, 0, 0), 1);
+    findContours(corner, contours, hierarchy, RETR_CCOMP, CHAIN_APPROX_NONE);
+    cornerCopy = corner.clone();
+    drawContours(cornerCopy, contours, -1, Scalar(255, 0, 0), 1);
 
     double area = 0;
     for (unsigned int i = 0;  i < contours.size();  i++)
@@ -157,6 +158,8 @@ void MainWindow::on_browse_clicked()
         return;
 
     m_fileList = files;
+    ui->label->setText("");
+    ui->label->setText(ui->imageLabel->text() + "Added successfully");
 }
 
 
