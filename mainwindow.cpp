@@ -45,7 +45,7 @@ void MainWindow::process()
         }
 
         ui->imageLabel->setPixmap(QPixmap::fromImage(image));
-        QThread::msleep(6000);
+        QThread::msleep(2000);
 //        image.save(string, "PNG");
     }
 }
