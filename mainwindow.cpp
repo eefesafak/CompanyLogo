@@ -65,16 +65,6 @@ quint8 MainWindow::contourDetection(const QString path)
     Mat cropped_image_bottom_left  = thresh(Range(image.size().height - 50, image.size().height), Range(0, 50));
     Mat cropped_image_bottom_right = thresh(Range(image.size().height - 50, image.size().height), Range(image.size().width - 50, image.size().width));
 
-    imshow("0", cropped_image_top_left);
-    imshow("1", cropped_image_top_right);
-    imshow("2", cropped_image_bottom_left);
-    imshow("3", cropped_image_bottom_right);
-
-    qDebug() << "alan0" << contoursArea(cropped_image_top_left);
-    qDebug() << "alan0" << contoursArea(cropped_image_top_right);
-    qDebug() << "alan0" << contoursArea(cropped_image_bottom_left);
-    qDebug() << "alan0" << contoursArea(cropped_image_bottom_right);
-
     int min = 10000;
     int result = 0;
     QList<Mat> matList = {cropped_image_top_left, cropped_image_top_right, cropped_image_bottom_left, cropped_image_bottom_right};
