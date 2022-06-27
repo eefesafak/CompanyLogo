@@ -1,15 +1,14 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include <QMainWindow>
-#include <QFileInfoList>
 #include <QFileDialog>
 #include <QtConcurrentRun>
-#include <QPixmap>
 #include <QPainter>
-#include <QBuffer>
+//#include <QBuffer>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc.hpp>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -30,11 +29,12 @@ public:
     QPoint   logoToBottomRight(QImage image, QImage logo2);
 
 private slots:
-    void   on_browse_clicked();
-    void   on_process_clicked();
+    void on_browse_clicked();
+    void on_process_clicked();
 
 private:
     Ui::MainWindow *ui;
     QStringList     m_fileList;
+    QElapsedTimer   m_timer;
 };
 #endif // MAINWINDOW_H
