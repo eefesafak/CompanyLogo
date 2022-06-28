@@ -4,7 +4,6 @@
 #include <QFileDialog>
 #include <QtConcurrentRun>
 #include <QPainter>
-//#include <QBuffer>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc.hpp>
