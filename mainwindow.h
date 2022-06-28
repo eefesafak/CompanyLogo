@@ -35,6 +35,5 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QStringList     m_fileList;
-    QElapsedTimer   m_timer;
 };
 #endif // MAINWINDOW_H

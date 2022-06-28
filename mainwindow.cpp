@@ -27,7 +27,7 @@ void MainWindow::process()
         QString  logoPath = "/home/efe/Downloads/logo.png";
         QImage   logo(logoPath);
         QImage   logo2 = logo.scaled(50, 50, Qt::KeepAspectRatio);
-        QPainter painter(&image); painter.setOpacity(1);
+        QPainter painter(&image); painter.setOpacity(0.5);
 
         // setting and drawing logo
         if(contourDetection(path)==0){
@@ -44,6 +44,8 @@ void MainWindow::process()
             painter.end();
         }
 
+        ui->imageLabel->setPixmap(QPixmap::fromImage(image));
+        QThread::msleep(4000);
         image.save(path, "PNG");
     }
 }
