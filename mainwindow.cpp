@@ -44,8 +44,6 @@ void MainWindow::process()
             painter.end();
         }
 
-        ui->imageLabel->setPixmap(QPixmap::fromImage(image));
-        QThread::msleep(4000);
         image.save(path, "PNG");
     }
 }
