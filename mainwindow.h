@@ -20,7 +20,7 @@ public:
              MainWindow(QWidget *parent = nullptr);
              ~MainWindow();
     void     process();
-    double   contoursArea(cv::Mat alaniBulunacakKose);
+    double   contoursArea(cv::Mat corner);
     quint8   contourDetection(const QString path);
     QPoint   logoToTopLeft();
     QPoint   logoToTopRight(QImage image, QImage logo2);
